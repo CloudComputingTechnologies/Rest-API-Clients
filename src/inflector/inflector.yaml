@@ -1,0 +1,10 @@
+controllerPackage: io.swagger.handler
+modelPackage:  io.swagger.model
+swaggerUrl: ./src/main/swagger/swagger.yaml
+modelMappings:
+  Price : io.swagger.model.Price
+  
+entityProcessors:
+  - json
+  - xml
+  - yaml

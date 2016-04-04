@@ -1,0 +1,82 @@
+---
+swagger: "2.0"
+info:
+  version: "v1"
+  title: "Cloud.Finance.Rest"
+host: "localhost:15534"
+schemes:
+- "http"
+paths:
+  /Price/{ticker}:
+    get:
+      tags:
+      - "Price"
+      operationId: "controllers.default_controller.price_get_by_ticker"
+      consumes: []
+      produces:
+      - "application/json"
+      - "text/json"
+      - "application/xml"
+      - "text/xml"
+      parameters:
+      - name: "apikey"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "ticker"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Price"
+      x-tags:
+      - tag: "Price"
+  /Price/{ticker}/{date}:
+    get:
+      tags:
+      - "Price"
+      operationId: "controllers.default_controller.price_get"
+      consumes: []
+      produces:
+      - "application/json"
+      - "text/json"
+      - "application/xml"
+      - "text/xml"
+      parameters:
+      - name: "apikey"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "ticker"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "date"
+        in: "path"
+        required: true
+        type: "string"
+        format: "date-time"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Price"
+      x-tags:
+      - tag: "Price"
+definitions:
+  Price:
+    type: "object"
+    properties:
+      Date:
+        type: "string"
+        format: "date-time"
+      Ticker:
+        type: "string"
+      Value:
+        type: "number"
+        format: "double"
