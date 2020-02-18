@@ -158,6 +158,6 @@
     <junit-version>4.8.1</junit-version>
     <servlet-api-version>2.5</servlet-api-version>
     <springfox-version>2.0.4-SNAPSHOT</springfox-version>
-    <spring-version>4.0.9.RELEASE</spring-version>
+    <spring-version>5.2.3.RELEASE</spring-version>
   </properties>
 </project>
